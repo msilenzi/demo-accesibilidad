@@ -6,6 +6,7 @@ import { BrowserRouter } from 'react-router'
 import { App } from './App.tsx'
 
 import 'modern-normalize/modern-normalize.css'
+import './styles/index.css'
 
 const root = document.getElementById('root')
 if (!root) throw new Error('root not found')

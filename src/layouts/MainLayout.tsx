@@ -1,9 +1,11 @@
 import { Link, Outlet } from 'react-router'
 
+import './MainLayout.css'
+
 export function MainLayout() {
   return (
-    <>
-      <header>
+    <div className='site-layout'>
+      <header className='site-header'>
         <h1>
           <Link to="/">Demo Accesibilidad</Link>
         </h1>
@@ -22,11 +24,11 @@ export function MainLayout() {
         </nav>
       </header>
 
-      <main id="main-content">
+      <main id="main-content" className='site-main'>
         <Outlet />
       </main>
 
-      <footer>
+      <footer className='site-footer'>
         <p>
           Creado con ♥️ por{' '}
           <a
@@ -38,6 +40,6 @@ export function MainLayout() {
           </a>
         </p>
       </footer>
-    </>
+    </div>
   )
 }

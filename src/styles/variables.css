@@ -1,0 +1,14 @@
+:root {
+  --fs-base: 1rem;
+  --fs-type-scale: 1.2;
+  --fs-h1: calc(var(--fs-type-scale) * var(--fs-h2));
+  --fs-h2: calc(var(--fs-type-scale) * var(--fs-h3));
+  --fs-h3: calc(var(--fs-type-scale) * var(--fs-h4));
+  --fs-h4: calc(var(--fs-type-scale) * var(--fs-h5));
+  --fs-h5: calc(var(--fs-type-scale) * var(--fs-base));
+
+  --ff-text:
+    'Inter', system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif,
+    'Apple Color Emoji', 'Segoe UI Emoji';
+  --ff-title: var(--ff-text);
+}
