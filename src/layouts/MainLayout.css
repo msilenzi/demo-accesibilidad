@@ -5,9 +5,11 @@
 }
 
 .site-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
 
   h1 {
     margin: 0;
@@ -22,6 +24,21 @@
     align-items: center;
     gap: 1rem;
   }
+
+  a {
+    display: block;
+    text-decoration: none;
+    color: var(--neutral-700);
+
+    &:hover {
+      text-decoration: underline;
+      color: var(--neutral-800);
+    }
+  }
+
+  nav a {
+    padding: 1.25rem 0;
+  }
 }
 
 .site-main {
@@ -30,4 +47,25 @@
 
 .site-footer {
   text-align: center;
+}
+
+.skip-link {
+  position: absolute;
+  top: -3rem;
+  left: 0.5rem;
+  border-radius: 0.25rem;
+  background: var(--neutral-800);
+  color: var(--neutral-50);
+  padding: 0.75rem;
+  z-index: 100;
+  transition: top 0.3s;
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.3);
+
+  /* 
+    Cuando se hace focus al elemento navegando con el teclado se lo muestra
+    en pantalla
+  */
+  &:focus-within {
+    top: 0.5rem;
+  }
 }

@@ -1,6 +1,17 @@
 body {
   font-family: var(--ff-text);
   font-size: var(--fs-base);
+  background-color: var(--neutral-50);
+  color: var(--neutral-700);
+}
+
+*:focus {
+  outline: none;
+}
+
+*:focus-visible {
+  outline: var(--neutral-700) 2px solid;
+  outline-offset: 2px;
 }
 
 h1,
@@ -41,4 +52,10 @@ h4,
 h5,
 .h5 {
   font-size: var(--fs-h5);
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 90%;
 }
