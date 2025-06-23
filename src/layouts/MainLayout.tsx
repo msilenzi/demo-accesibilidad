@@ -1,8 +1,10 @@
-import { Link, Outlet } from 'react-router'
+import { Link, Outlet, useLocation } from 'react-router'
 
 import './MainLayout.css'
 
 export function MainLayout() {
+  const location = useLocation()
+
   return (
     <>
       <SkipLink />
@@ -15,13 +17,17 @@ export function MainLayout() {
             <nav>
               <ul>
                 <li>
-                  <Link to="/">Inicio</Link>
+                  <Link to="/" data-active={location.pathname === '/'}>
+                    Inicio
+                  </Link>
                 </li>
                 <li>
-                  <Link to="/live-demo">Live Regions</Link>
-                </li>
-                <li>
-                  <Link to="/about">Acerca de</Link>
+                  <Link
+                    to="/live-demo"
+                    data-active={location.pathname === '/live-demo'}
+                  >
+                    Regiones dinámicas
+                  </Link>
                 </li>
               </ul>
             </nav>

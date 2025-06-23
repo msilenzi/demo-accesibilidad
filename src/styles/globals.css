@@ -29,6 +29,10 @@ h5,
   font-family: var(--ff-title);
 }
 
+p {
+  margin: 1em 0;
+}
+
 h1,
 .h1 {
   font-size: var(--fs-h1);
@@ -58,4 +62,11 @@ h5,
   max-width: 1200px;
   margin: 0 auto;
   width: 90%;
+}
+
+code {
+  font-weight: 0.85em;
+  background-color: var(--neutral-200);
+  padding: 0.1em 0.3em;
+  border-radius: 0.2em;
 }
