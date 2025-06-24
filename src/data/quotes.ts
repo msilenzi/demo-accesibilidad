@@ -235,11 +235,6 @@ export const quotes: Quote[] = [
     author: 'Mirtha Legrand',
   },
   {
-    quote: '¡A comerlaaa!',
-    author:
-      'Pepe Argento (personaje de Guillermo Francella en "Casados con Hijos")',
-  },
-  {
     quote: 'Ganen o pierdan, lo que quiero es que dejen una imagen.',
     author: 'Marcelo Bielsa',
   },

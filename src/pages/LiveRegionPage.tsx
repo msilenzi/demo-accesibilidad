@@ -25,7 +25,12 @@ export function LiveRegionPage() {
         de elementos en el DOM.
       </p>
 
-      <div className="live-region__quote" aria-live="polite" aria-atomic="true">
+      <div
+        className="live-region__quote"
+        aria-live="polite"
+        aria-atomic="true"
+        aria-busy={loading}
+      >
         {loading ? <Loading /> : <QuoteComponent {...quote} />}
       </div>
 
