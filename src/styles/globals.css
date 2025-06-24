@@ -58,15 +58,27 @@ h5,
   font-size: var(--fs-h5);
 }
 
+code {
+  font-weight: 0.85em;
+  background-color: var(--neutral-200);
+  padding: 0.1em 0.3em;
+  border-radius: 0.2em;
+}
+
 .container {
   max-width: 800px;
   margin: 0 auto;
   width: 90%;
 }
 
-code {
-  font-weight: 0.85em;
-  background-color: var(--neutral-200);
-  padding: 0.1em 0.3em;
-  border-radius: 0.2em;
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
 }

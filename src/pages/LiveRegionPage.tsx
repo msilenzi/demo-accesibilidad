@@ -6,7 +6,11 @@ import { useQuotes } from '../hooks/useQuotes'
 
 import './LiveRegionPage.css'
 
+import { usePageTitleAnnouncer } from '../hooks/usePageTitleAnnouncer'
+
 export function LiveRegionPage() {
+  usePageTitleAnnouncer('Ejemplo de Regiones Dinámicas')
+
   const { isLoading, quote, changeQuote } = useQuotes()
 
   useEffect(() => void changeQuote(), [changeQuote])
@@ -21,7 +25,7 @@ export function LiveRegionPage() {
         de elementos en el DOM.
       </p>
 
-      <div className="live-region__quote">
+      <div className="live-region__quote" aria-live="polite" aria-atomic="true">
         {loading ? <Loading /> : <QuoteComponent {...quote} />}
       </div>
 

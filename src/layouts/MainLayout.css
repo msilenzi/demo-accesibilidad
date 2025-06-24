@@ -44,7 +44,7 @@
   nav a {
     padding: 1.25rem 0;
 
-    &[data-active="true"] {
+    &[aria-current='page'] {
       font-weight: 600;
     }
   }
@@ -74,7 +74,7 @@
     Cuando se hace focus al elemento navegando con el teclado se lo muestra
     en pantalla
   */
-  &:focus-within {
+  &:focus {
     top: 0.5rem;
   }
 }

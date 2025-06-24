@@ -1,4 +1,8 @@
+import { usePageTitleAnnouncer } from '../hooks/usePageTitleAnnouncer'
+
 export function HomePage() {
+  usePageTitleAnnouncer('Inicio')
+
   return (
     <section>
       <h1>Sobre el proyecto</h1>

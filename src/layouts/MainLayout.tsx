@@ -2,29 +2,45 @@ import { Link, Outlet, useLocation } from 'react-router'
 
 import './MainLayout.css'
 
+import { useRouteChangeFocus } from '../hooks/useRouteChangeFocus'
+
 export function MainLayout() {
   const location = useLocation()
+  useRouteChangeFocus()
 
   return (
     <>
       <SkipLink />
+      <PageTitleAnnouncer />
       <div className="site-layout">
         <header className="site-header">
           <div className="container">
-            <h1 className="h3">
+            <span className="h3">
               <Link to="/">Demo Accesibilidad</Link>
-            </h1>
-            <nav>
+            </span>
+            <nav aria-label="Navegación principal">
               <ul>
                 <li>
-                  <Link to="/" data-active={location.pathname === '/'}>
+                  <Link
+                    to="/"
+                    /**
+                     * aria-current="page" informa a las tecnologías de
+                     * asistencia que un enlace dentro de un conjunto de
+                     * enlaces de navegación apunta a la página actual.
+                     */
+                    aria-current={
+                      location.pathname === '/' ? 'page' : undefined
+                    }
+                  >
                     Inicio
                   </Link>
                 </li>
                 <li>
                   <Link
                     to="/live-demo"
-                    data-active={location.pathname === '/live-demo'}
+                    aria-current={
+                      location.pathname === '/live-demo' ? 'page' : undefined
+                    }
                   >
                     Regiones dinámicas
                   </Link>
@@ -34,7 +50,7 @@ export function MainLayout() {
           </div>
         </header>
 
-        <main id="main-content" className="site-main container">
+        <main id="main-content" className="site-main container" tabIndex={-1}>
           <Outlet />
         </main>
 
@@ -47,6 +63,11 @@ export function MainLayout() {
               rel="noopener noreferrer"
             >
               Manu
+              {/* 
+                Este texto solo se muestra a los lectores de pantalla y advierte
+                a las personas no videntes sobre el comportamiento del enlace
+              */}
+              <span className="sr-only">(se abre en una nueva pestaña)</span>
             </a>
           </p>
         </footer>
@@ -56,7 +77,7 @@ export function MainLayout() {
 }
 
 /**
- * Componente que muestra un enlace para saltar al contenido principal.
+ * Muestra un enlace para saltar al contenido principal.
  * Esencial para usuarios de teclado.
  */
 function SkipLink() {
@@ -64,5 +85,20 @@ function SkipLink() {
     <a href="#main-content" className="skip-link">
       Ir al contenido principal
     </a>
+  )
+}
+
+/**
+ * Define una live region para anunciar cambios en el título de la página
+ * a los usuarios de lectores de pantalla. Está visualmente oculto.
+ */
+function PageTitleAnnouncer() {
+  return (
+    <div
+      id="page-title-announcer"
+      className="sr-only"
+      aria-live="polite"
+      aria-atomic="true"
+    ></div>
   )
 }
